@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>BRAVE༒KINGS Generator</title>  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255,255,255,0.08);
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #111;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background: #292929;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .generated {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      margin-top: 15px;
+    }
+  </style></head><body>  <div class="container"><h1>BRAVE༒KINGS</h1>
+
+<p class="subtitle">
+  Guild Name Generator
+</p>
+
+<select id="style">
+  <option value="male">Male — BKㅤ༒ㅤNAME</option>
+  <option value="female">Female — BK ✿ NAME</option>
+</select>
+
+<input
+  type="text"
+  id="nameInput"
+  placeholder="Enter your name..."
+  maxlength="20"
+>
+
+<button onclick="generateName()">
+  GENERATE NAME
+</button>
+
+<div class="result" id="result">
+
+  <div>YOUR FREE FIRE NAME</div>
+
+  <div class="generated" id="generatedName"></div>
+
+  <button class="copy-btn" onclick="copyName()">
+    COPY NAME
+  </button>
+
+</div>
+
+  </div>  <script>
+
+    function generateName() {
+
+      const name = document
+        .getElementById("nameInput")
+        .value
+        .trim();
+
+      const style = document.getElementById("style").value;
+
+      if (name === "") {
+        alert("Enter your name first!");
+        return;
+      }
+
+      let finalName;
+
+      if (style === "female") {
+        finalName = "BK ✿ " + name;
+      } else {
+        finalName = "BKㅤ༒ㅤ" + name;
+      }
+
+      document.getElementById("generatedName").textContent = finalName;
+
+      document.getElementById("result").style.display = "block";
+    }
+
+    function copyName() {
+
+      const name = document
+        .getElementById("generatedName")
+        .textContent;
+
+      navigator.clipboard.writeText(name);
+
+      alert("Name copied!");
+    }
+
+  </script></body>
+</html>
